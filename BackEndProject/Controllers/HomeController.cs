@@ -9,6 +9,7 @@ using BackEndProject.ViewModels;
 using Microsoft.AspNetCore.Http;
 using System;
 using Newtonsoft.Json;
+using BackEndProject.Services;
 
 namespace BackEndProject.Controllers
 {
@@ -23,11 +24,30 @@ namespace BackEndProject.Controllers
         {
             HttpContext.Session.SetString("name", "Azer");
             Response.Cookies.Append("surname", "Humbetov",new CookieOptions {MaxAge=TimeSpan.FromDays(1)});
+            Dictionary<string, string> settingDatas = await _context.Settings.ToDictionaryAsync(m => m.Key, m => m.Value);
             IEnumerable<Language> languages = await _context.Languages.ToListAsync();
             IEnumerable<Currency> currencies = await _context.Currencies.ToListAsync();
+            IEnumerable<Service> services = await _context.Services.ToListAsync();
+            IEnumerable<Slider> sliders = await _context.Sliders.ToListAsync();
+            IEnumerable<TwinBlog> twinBlogs = await _context.TwinBlogs.ToListAsync();
+            IEnumerable<ShopProduct> shopProducts = await _context.ShopProducts.Include(m => m.ProductImages).Take(5).ToListAsync();
 
 
-            return View();
+            HomeVM homeVM = new HomeVM
+            {
+                Currencies = currencies,
+                Languages = languages,
+                SettingDatas = settingDatas,
+                Services = services,
+                Sliders = sliders,
+                TwinBlogs = twinBlogs,
+                ShopProducts = shopProducts
+            };
+
+
+
+
+            return View(homeVM);
         }
 
         public async Task<IActionResult> AddBasket(int? id)

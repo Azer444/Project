@@ -320,3 +320,4 @@ C:\Users\azerh\Desktop\BackEnd\ProjectBackEnd\BackEndProject\obj\Debug\netcoreap
 C:\Users\azerh\Desktop\BackEnd\ProjectBackEnd\BackEndProject\obj\Debug\netcoreapp3.1\BackEndProject.csproj.AssemblyReference.cache
 C:\Users\azerh\Desktop\BackEnd\ProjectBackEnd\BackEndProject\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Footer\Default.cshtml.g.cs
 C:\Users\azerh\Desktop\BackEnd\ProjectBackEnd\BackEndProject\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Header\Default.cshtml.g.cs
+C:\Users\azerh\Desktop\BackEnd\ProjectBackEnd\BackEndProject\obj\Debug\netcoreapp3.1\Razor\Views\ProductDetail\Index.cshtml.g.cs

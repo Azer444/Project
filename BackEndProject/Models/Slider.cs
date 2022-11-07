@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 
 namespace BackEndProject.Models
 {
-    public class Service : BaseEntity
+    public class Slider : BaseEntity 
     {
         public string Image { get; set; }
-        public string Header { get; set; }
-        public string Footer { get; set; }
-        public string Color { get; set; }
+        public string Selling { get; set; }
+        public string Title { get; set; }
+        public string Desc { get; set; }
     }
 }

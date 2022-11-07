@@ -10,7 +10,9 @@ namespace BackEndProject.Models
     {
         public string Name { get; set; }
         public decimal Price { get; set; }
-        [Column(TypeName ="decimal(18,4)")]
+        [Column(TypeName = "decimal(18,4)")]
+        public decimal Discount { get; set; }
         public List<ProductImage> ProductImages { get; set; }
+        public string DetailDesc { get; set; }
     }
 }

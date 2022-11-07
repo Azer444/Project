@@ -13,6 +13,7 @@ namespace BackEndProject.Data
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
+
         }
 
         public DbSet<Category> Categories { get; set; }
@@ -20,8 +21,9 @@ namespace BackEndProject.Data
         public DbSet<Language> Languages { get; set; }
         public DbSet<Setting> Settings { get; set; }
         public DbSet<Service> Services { get; set; }
-        public DbSet<ProductImage> ProductImages { get; set; }
         public DbSet<ShopProduct> ShopProducts { get; set; }
+        public DbSet<Slider> Sliders { get; set; }
+        public DbSet<TwinBlog> TwinBlogs { get; set; }
 
     }
 }
