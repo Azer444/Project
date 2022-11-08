@@ -19,7 +19,6 @@ namespace BackEndProject.Controllers
         public async Task<IActionResult> Index()
         {
             IEnumerable<ShopProduct> shopProducts = await _context.ShopProducts.Include(m => m.ProductImages).ToListAsync();
-
             return View(shopProducts);
         }
     }

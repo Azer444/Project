@@ -10,20 +10,11 @@
     <title></title>
     <title>@ViewData["Title"]Juan - Shoes Store HTML Template</title>
     <!--=== Favicon ===-->
-    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon" />
-    <!--=== All Plugins CSS ===-->
+    <link rel="shortcut icon" href="~/assets/img/favicon.ico" type="image/x-icon" />
     <link href="~/assets/css/plugins.css" rel="stylesheet">
-    <!--=== All Vendor CSS ===-->
     <link href="~/assets/css/vendor.css" rel="stylesheet">
-    <!--=== Main Style CSS ===-->
     <link href="~/assets/css/style.css" rel="stylesheet">
-    <!-- Modernizer JS -->
     <script src="~/assets/js/modernizr-2.8.3.min.js"></script>
-
-    <!--[if lt IE 9]>
-    <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 
 <body>
@@ -42,13 +33,38 @@
     <!-- Scroll to Top End -->
     <!--=======================Javascript============================-->
     <!--=== All Vendor Js ===-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.7/sweetalert2.css" integrity="sha512-JzSVRb7c802/njMbV97pjo1wuJAE/6v9CvthGTDxiaZij/TFpPQmQPTcdXyUVucsvLtJBT6YwRb5LhVxX3pQHQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.7/sweetalert2.min.js" integrity="sha512-jWnZswpC+en54H2EgAsmbQ6l+71tiRawlnmkw31sthq4EGzLKPXG3MQAGIUgWcw8jumkjPNHKHHS5odj+lHudw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="~/assets/js/vendor.js"></script>
     <!--=== All Plugins Js ===-->
     <script src="~/assets/js/plugins.js"></script>
     <!--=== Active Js ===-->
     <script src="~/assets/js/active.js"></script>
-</body>
+    <script>
+        $(document).on("click", ".add-to-cart", function () {
 
+            let productId = parseInt($(this).closest(".product-item").children(0).val());
+
+            let data = { id: productId };
+            $.ajax({
+                url: "/home/addbasket",
+                type: "POST",
+                data: data,
+                contentType: "application/x-www-form-urlencoded",
+                success: function (res) {
+
+                    Swal.fire
+                        (
+                            'Good job !',
+                            'Product Added',
+                            'succes'
+                        )
+
+                }
+            })
+        })</script>
+
+</body>
 
 <!-- Mirrored from demo.hasthemes.com/juan-preview-v1/juan/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 07 Mar 2021 22:36:53 GMT -->
 </html>

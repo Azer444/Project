@@ -32,7 +32,6 @@ namespace BackEndProject.Controllers
             IEnumerable<TwinBlog> twinBlogs = await _context.TwinBlogs.ToListAsync();
             IEnumerable<ShopProduct> shopProducts = await _context.ShopProducts.Include(m => m.ProductImages).Take(5).ToListAsync();
 
-
             HomeVM homeVM = new HomeVM
             {
                 Currencies = currencies,
@@ -44,24 +43,56 @@ namespace BackEndProject.Controllers
                 ShopProducts = shopProducts
             };
 
-
-
-
             return View(homeVM);
         }
-
+        [HttpPost]
         public async Task<IActionResult> AddBasket(int? id)
         {
-            if (id is null) return NotFound();
+            if (id is null) return BadRequest();
 
-            var dbProduct = await _context.ShopProducts.FindAsync(id);
+            var dbProduct = await GetProductById(id);
 
-            if (dbProduct == null) return BadRequest();
+            if (dbProduct == null) return NotFound();
 
+            List<BasketVM> basket = GetBasket();
+
+            UpdateBasket(basket, dbProduct.Id);
+
+
+            Response.Cookies.Append("basket", JsonConvert.SerializeObject(basket));
+
+
+            return RedirectToAction(nameof(Index ));
+        }
+        private void UpdateBasket(List<BasketVM> basket,int id)
+        {
+            BasketVM existProduct = basket.FirstOrDefault(m => m.Id == id);
+
+            if (existProduct == null)
+            {
+                basket.Add(new BasketVM
+                {
+                    Id = id,
+                    Count = 1
+                });
+            }
+            else
+            {
+                existProduct.Count++;
+            }
+        }
+
+        private async Task<ShopProduct> GetProductById(int? id)
+        {
+            return await _context.ShopProducts.FindAsync(id);
+        }
+
+        private List<BasketVM> GetBasket()
+        {
 
             List<BasketVM> basket;
 
-            if (Request.Cookies["basket"]!=null)
+            if (Request.Cookies["basket"] != null)
             {
                 basket = JsonConvert.DeserializeObject<List<BasketVM>>(Request.Cookies["basket"]);
             }
@@ -69,16 +100,9 @@ namespace BackEndProject.Controllers
             {
                 basket = new List<BasketVM>();
             }
-            basket.Add(new BasketVM
-            {
-                Id = dbProduct.Id,
-                Count = 1
-            });
 
-            Response.Cookies.Append("basket", JsonConvert.SerializeObject(basket));
+            return basket;
 
-
-            return RedirectToAction("Index");
         }
         
     }

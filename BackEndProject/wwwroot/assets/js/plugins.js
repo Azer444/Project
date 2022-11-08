@@ -38,7 +38,9 @@
 
 
 // Ajax mail js
-$(function() {
+$(function () {
+
+
 
 	// Get the form.
 	var form = $('#contact-form');
