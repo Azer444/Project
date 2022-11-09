@@ -19,5 +19,18 @@ namespace BackEndProject.Controllers
         {
             return View();
         }
+
+
+        [HttpGet]
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult MyAccount()
+        {
+            return View();
+        }
     }
 }

@@ -9,7 +9,7 @@
                     <div class="row align-items-center">
                         <div class="col-lg-6">
                             <div class="welcome-message">
-                                <p>Welcome to Juan online store</p>
+                                <p>@Model.SettingDatas["HeaderTitle"]</p>
                             </div>
                         </div>
                         <div class="col-lg-6 text-right">
@@ -51,7 +51,7 @@
                         <div class="col-lg-2">
                             <div class="logo">
                                 <a asp-controller="Home" asp-action="Index">
-                                    <img src="~/assets/img/logo/logo.png" alt="">
+                                    <img src="~/assets/img/logo/@Model.SettingDatas["HeaderLogo"]" alt="">
                                 </a>
                             </div>
                         </div>
@@ -104,7 +104,7 @@
                                                     <li class="mega-title">
                                                         <a href="#">column 03</a>
                                                         <ul>
-                                                            <li><a href="cart.html">cart</a></li>
+                                                            <li><a asp-controller="Basket" asp-action="Index" >cart</a></li>
                                                             <li><a href="checkout.html">checkout</a></li>
                                                             <li><a href="compare.html">compare</a></li>
                                                             <li><a href="wishlist.html">wishlist</a></li>
@@ -113,9 +113,9 @@
                                                     <li class="mega-title">
                                                         <a href="#">column 04</a>
                                                         <ul>
-                                                            <li><a href="my-account.html">my-account</a></li>
-                                                            <li><a href="login-register.html">login-register</a></li>
-                                                            <li><a href="contact-us.html">contact us</a></li>
+                                                            <li><a asp-controller="Account" asp-action="MyAccount">my-account</a></li>
+                                                            <li><a asp-controller="Account" asp-action="Login">login-register</a></li>
+                                                            <li><a asp-controller="Account" asp-action="Register">contact us</a></li>
                                                         </ul>
                                                     </li>
                                                 </ul>
@@ -186,9 +186,9 @@
                                                 <i class="ion-ios-gear-outline"></i>
                                             </a>
                                             <ul class="dropdown-list">
-                                                <li><a href="login-register.html">login</a></li>
-                                                <li><a href="login-register.html">register</a></li>
-                                                <li><a href="my-account.html">my account</a></li>
+                                                <li><a asp-controller="Account" asp-action="Register">login</a></li>
+                                                <li><a asp-controller="Account" asp-action="Login">register</a></li>
+                                                <li><a asp-controller="Account" asp-action="MyAccount">my account</a></li>
                                             </ul>
                                         </li>
                                         <li>
@@ -320,7 +320,7 @@
                                     <li class="mega-title menu-item-has-children">
                                         <a href="#">column 03</a>
                                         <ul class="dropdown">
-                                            <li><a href="cart.html">cart</a></li>
+                                            <li><a asp-controller="Basket" asp-action="Index">cart</a></li>
                                             <li><a href="checkout.html">checkout</a></li>
                                             <li><a href="compare.html">compare</a></li>
                                             <li><a href="wishlist.html">wishlist</a></li>
@@ -329,9 +329,9 @@
                                     <li class="mega-title menu-item-has-children">
                                         <a href="#">column 04</a>
                                         <ul class="dropdown">
-                                            <li><a href="my-account.html">my-account</a></li>
-                                            <li><a href="login-register.html">login-register</a></li>
-                                            <li><a href="contact-us.html">contact us</a></li>
+                                            <li><a asp-controller="Account" asp-action="MyAccount">my-account</a></li>
+                                            <li><a asp-controller="Account" asp-action="Login">login-register</a></li>
+                                            <li><a asp-controller="Contact" asp-action="Index">contact us</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -407,9 +407,9 @@
                                     <i class="fa fa-angle-down"></i>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="myaccount">
-                                    <a class="dropdown-item" href="my-account.html">my account</a>
-                                    <a class="dropdown-item" href="login-register.html"> login</a>
-                                    <a class="dropdown-item" href="login-register.html">register</a>
+                                    <a class="dropdown-item" asp-controller="Account" asp-action="MyAccount">my account</a>
+                                    <a class="dropdown-item" asp-controller="Account" asp-action="Register"> login</a>
+                                    <a class="dropdown-item" asp-controller="Account" asp-action="Login">register</a>
                                 </div>
                             </div>
                         </li>

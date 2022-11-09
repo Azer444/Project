@@ -31,7 +31,10 @@ namespace BackEndProject.Controllers
             IEnumerable<Slider> sliders = await _context.Sliders.ToListAsync();
             IEnumerable<TwinBlog> twinBlogs = await _context.TwinBlogs.ToListAsync();
             IEnumerable<ShopProduct> shopProducts = await _context.ShopProducts.Include(m => m.ProductImages).Take(5).ToListAsync();
-
+            IEnumerable<BrandSlider> brandSliders = await _context.BrandSliders.ToListAsync();
+            IEnumerable<SellerSlider> sellerSliders = await _context.SellerSliders.ToListAsync();
+            IEnumerable<Blog> blogs = await _context.Blogs.ToListAsync();
+ 
             HomeVM homeVM = new HomeVM
             {
                 Currencies = currencies,
@@ -40,7 +43,10 @@ namespace BackEndProject.Controllers
                 Services = services,
                 Sliders = sliders,
                 TwinBlogs = twinBlogs,
-                ShopProducts = shopProducts
+                ShopProducts = shopProducts,
+                BrandSliders = brandSliders,
+                SellerSliders =sellerSliders,
+                Blogs = blogs
             };
 
             return View(homeVM);
@@ -64,6 +70,9 @@ namespace BackEndProject.Controllers
 
             return RedirectToAction(nameof(Index ));
         }
+
+
+
         private void UpdateBasket(List<BasketVM> basket,int id)
         {
             BasketVM existProduct = basket.FirstOrDefault(m => m.Id == id);

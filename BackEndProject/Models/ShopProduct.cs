@@ -8,6 +8,8 @@ namespace BackEndProject.Models
 {
     public class ShopProduct : BaseEntity
     {
+        public string Header { get; set; }
+        public string Desc { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
         [Column(TypeName = "decimal(18,4)")]

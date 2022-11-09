@@ -10,6 +10,8 @@ namespace BackEndProject.ViewModels
     {
         public Dictionary<string, string> SettingDatas { get; set; }
 
+        public IEnumerable<Social> Socials { get; set; }
+
         public IEnumerable<Category> Categories { get; set; }
     }
 }

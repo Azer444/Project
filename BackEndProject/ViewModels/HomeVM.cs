@@ -15,5 +15,10 @@ namespace BackEndProject.ViewModels
         public IEnumerable<Slider> Sliders { get; set; }
         public IEnumerable<TwinBlog> TwinBlogs { get; set; }
         public IEnumerable<ShopProduct> ShopProducts { get; set; }
+        public IEnumerable<ProductImage> ProductImages { get; set; }
+        public IEnumerable<BrandSlider> BrandSliders { get; set; }
+        public IEnumerable <SellerSlider> SellerSliders { get; set; }
+        public IEnumerable<Blog> Blogs { get; set; }
+
     }
 }

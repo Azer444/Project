@@ -10,6 +10,5 @@ namespace BackEndProject.Models
         public string Name { get; set; }
         public int Price { get; set; }
         public int Discount { get; set; }
-        public string MyProperty { get; set; }
     }
 }
