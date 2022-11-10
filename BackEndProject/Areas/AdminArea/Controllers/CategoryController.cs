@@ -20,7 +20,49 @@ namespace BackEndProject.Areas.AdminArea.Controllers
         public async Task<IActionResult> Index()
         {
             IEnumerable<Category> categories = await _context.Categories.ToListAsync();
+
             return View(categories);
+        }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(Category category)
+        {
+          
+
+            bool isExist = await _context.Categories.AnyAsync(m => m.Name.Trim() == category.Name.Trim());
+            if (isExist)
+            {
+                ModelState.AddModelError("Name", "category already exist");
+            }
+            await _context.Categories.AddAsync(category);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+
+
+
+        }
+        [HttpGet]
+        public async Task<IActionResult> Detail(int? id)
+        {
+            if (id == null) return BadRequest();
+            Category category = await _context.Categories.FindAsync(id);
+            if (category == null) return NotFound();
+            return View(category);
+        }
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            Category category = await _context.Categories.FirstOrDefaultAsync(m => m.Id == id);
+            _context.Categories.Remove(category);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
     }
 }

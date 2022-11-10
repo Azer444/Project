@@ -27,5 +27,14 @@ namespace BackEndProject.Data
         public DbSet<SellerSlider> SellerSliders { get; set; }
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Social> Socials { get; set; }
+        public DbSet<NavbarCategory> NavbarCategories { get; set; }
+
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Category>().HasQueryFilter(m => !m.IsDeleted);
+        }
+
+
     }
 }

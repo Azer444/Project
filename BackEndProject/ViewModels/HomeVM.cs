@@ -20,5 +20,6 @@ namespace BackEndProject.ViewModels
         public IEnumerable <SellerSlider> SellerSliders { get; set; }
         public IEnumerable<Blog> Blogs { get; set; }
 
+
     }
 }

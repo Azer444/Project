@@ -326,3 +326,7 @@ C:\Users\azerh\Desktop\BackEnd\ProjectBackEnd\BackEndProject\obj\Debug\netcoreap
 C:\Users\azerh\Desktop\BackEnd\ProjectBackEnd\BackEndProject\obj\Debug\netcoreapp3.1\BackEndProject.genruntimeconfig.cache
 C:\Users\azerh\Desktop\BackEnd\ProjectBackEnd\BackEndProject\obj\Debug\netcoreapp3.1\BackEndProject.csproj.AssemblyReference.cache
 C:\Users\azerh\Desktop\BackEnd\ProjectBackEnd\BackEndProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Category\Index.cshtml.g.cs
+C:\Users\azerh\Desktop\BackEnd\ProjectBackEnd\BackEndProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Category\Create.cshtml.g.cs
+C:\Users\azerh\Desktop\BackEnd\ProjectBackEnd\BackEndProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Category\Detail.cshtml.g.cs
+C:\Users\azerh\Desktop\BackEnd\ProjectBackEnd\BackEndProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Slider\Index.cshtml.g.cs
+C:\Users\azerh\Desktop\BackEnd\ProjectBackEnd\BackEndProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Slider\Create.cshtml.g.cs
