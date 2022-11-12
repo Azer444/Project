@@ -129,15 +129,12 @@ namespace BackEndProject.Migrations
                     b.ToTable("Languages");
                 });
 
-            modelBuilder.Entity("BackEndProject.Models.NavbarCategory", b =>
+            modelBuilder.Entity("BackEndProject.Models.Model", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Coulmn")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -145,12 +142,45 @@ namespace BackEndProject.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Url")
+                    b.HasKey("Id");
+
+                    b.ToTable("Models");
+                });
+
+            modelBuilder.Entity("BackEndProject.Models.ProductCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Desc")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DetailDesc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Discount")
+                        .HasColumnType("decimal(18,4)");
+
+                    b.Property<string>("Header")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("MainImage")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("NavbarCategories");
+                    b.ToTable("ShopProducts");
                 });
 
             modelBuilder.Entity("BackEndProject.Models.ProductImage", b =>
@@ -169,14 +199,43 @@ namespace BackEndProject.Migrations
                     b.Property<bool>("IsMain")
                         .HasColumnType("bit");
 
+                    b.Property<int?>("ProductCategoryId")
+                        .HasColumnType("int");
+
                     b.Property<int>("ShopProductId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ProductCategoryId");
+
                     b.HasIndex("ShopProductId");
 
-                    b.ToTable("ProductImage");
+                    b.ToTable("ProductImages");
+                });
+
+            modelBuilder.Entity("BackEndProject.Models.ProductSlider", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Discount")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Price")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ProductSliders");
                 });
 
             modelBuilder.Entity("BackEndProject.Models.SellerSlider", b =>
@@ -282,6 +341,12 @@ namespace BackEndProject.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
+                    b.Property<bool>("MainImage")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("ModelId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -290,7 +355,34 @@ namespace BackEndProject.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ShopProducts");
+                    b.HasIndex("ModelId");
+
+                    b.ToTable("ShopProduct");
+                });
+
+            modelBuilder.Entity("BackEndProject.Models.ShopProductModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("ModelId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ShopProductId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ModelId");
+
+                    b.HasIndex("ShopProductId");
+
+                    b.ToTable("ShopProductModels");
                 });
 
             modelBuilder.Entity("BackEndProject.Models.Slider", b =>
@@ -370,8 +462,34 @@ namespace BackEndProject.Migrations
 
             modelBuilder.Entity("BackEndProject.Models.ProductImage", b =>
                 {
+                    b.HasOne("BackEndProject.Models.ProductCategory", null)
+                        .WithMany("ProductImages")
+                        .HasForeignKey("ProductCategoryId");
+
                     b.HasOne("BackEndProject.Models.ShopProduct", "ShopProduct")
                         .WithMany("ProductImages")
+                        .HasForeignKey("ShopProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("BackEndProject.Models.ShopProduct", b =>
+                {
+                    b.HasOne("BackEndProject.Models.Model", "Model")
+                        .WithMany("ShopProducts")
+                        .HasForeignKey("ModelId");
+                });
+
+            modelBuilder.Entity("BackEndProject.Models.ShopProductModel", b =>
+                {
+                    b.HasOne("BackEndProject.Models.Model", "Model")
+                        .WithMany()
+                        .HasForeignKey("ModelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BackEndProject.Models.ShopProduct", "ShopProduct")
+                        .WithMany()
                         .HasForeignKey("ShopProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

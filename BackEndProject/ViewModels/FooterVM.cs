@@ -13,5 +13,6 @@ namespace BackEndProject.ViewModels
         public IEnumerable<Social> Socials { get; set; }
 
         public IEnumerable<Category> Categories { get; set; }
+
     }
 }

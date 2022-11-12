@@ -30,7 +30,7 @@ namespace BackEndProject.Controllers
             IEnumerable<Service> services = await _context.Services.ToListAsync();
             IEnumerable<Slider> sliders = await _context.Sliders.ToListAsync();
             IEnumerable<TwinBlog> twinBlogs = await _context.TwinBlogs.ToListAsync();
-            IEnumerable<ShopProduct> shopProducts = await _context.ShopProducts.Include(m => m.ProductImages).Take(5).ToListAsync();
+            ICollection<ProductCategory> shopProducts = await _context.ShopProducts.Include(m => m.ProductImages).Where(m => m.MainImage == true).Take(5).ToListAsync();
             IEnumerable<BrandSlider> brandSliders = await _context.BrandSliders.ToListAsync();
             IEnumerable<SellerSlider> sellerSliders = await _context.SellerSliders.ToListAsync();
             IEnumerable<Blog> blogs = await _context.Blogs.ToListAsync();
@@ -91,7 +91,7 @@ namespace BackEndProject.Controllers
             }
         }
 
-        private async Task<ShopProduct> GetProductById(int? id)
+        private async Task<ProductCategory> GetProductById(int? id)
         {
             return await _context.ShopProducts.FindAsync(id);
         }

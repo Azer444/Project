@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace BackEndProject.Models
 {
-    public class ProductImage : BaseEntity
+    public class ShopProductModel : BaseEntity
     {
-        public bool IsMain { get; set; } = false;
-        public string Image { get; set; }
         public int ShopProductId { get; set; }
         public ShopProduct ShopProduct { get; set; }
+        public int ModelId { get; set; }
+        public Model Model { get; set; }
     }
 }

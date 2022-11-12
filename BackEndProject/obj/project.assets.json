@@ -8632,11 +8632,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\azerh\\Desktop\\BackEnd\\ProjectBackEnd\\BackEndProject\\BackEndProject.csproj",
+      "projectUniqueName": "C:\\Users\\azerh\\Desktop\\BackEnd-Lahiye\\Project\\BackEndProject\\BackEndProject.csproj",
       "projectName": "BackEndProject",
-      "projectPath": "C:\\Users\\azerh\\Desktop\\BackEnd\\ProjectBackEnd\\BackEndProject\\BackEndProject.csproj",
+      "projectPath": "C:\\Users\\azerh\\Desktop\\BackEnd-Lahiye\\Project\\BackEndProject\\BackEndProject.csproj",
       "packagesPath": "C:\\Users\\azerh\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\azerh\\Desktop\\BackEnd\\ProjectBackEnd\\BackEndProject\\obj\\",
+      "outputPath": "C:\\Users\\azerh\\Desktop\\BackEnd-Lahiye\\Project\\BackEndProject\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\azerh\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -2,21 +2,22 @@
 
 namespace BackEndProject.Migrations
 {
-    public partial class AddCoulmnNavbarCategory : Migration
+    public partial class CreateUpdate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<string>(
-                name: "Coulmn",
-                table: "NavbarCategories",
-                nullable: true);
+            migrationBuilder.AddColumn<bool>(
+                name: "MainImage",
+                table: "ShopProducts",
+                nullable: false,
+                defaultValue: false);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "Coulmn",
-                table: "NavbarCategories");
+                name: "MainImage",
+                table: "ShopProducts");
         }
     }
 }

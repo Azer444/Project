@@ -14,7 +14,5 @@ namespace BackEndProject.ViewModels
 
         public IEnumerable<Language> Languages { get; set; }
 
-        public IEnumerable<NavbarCategory> NavbarCategories { get; set; }
-
     }
 }

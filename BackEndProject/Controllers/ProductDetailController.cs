@@ -1,5 +1,6 @@
 ﻿using BackEndProject.Data;
 using BackEndProject.Models;
+using BackEndProject.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -18,9 +19,16 @@ namespace BackEndProject.Controllers
         }
         public async Task<IActionResult> Index(int? id)
         {
-            //IEnumerable<ShopProduct> shopProducts = await _context.ShopProducts.Where(m => m.Id == id).Include(m => m.ProductImages).ToListAsync();
-            IEnumerable<ShopProduct> shopProducts = await _context.ShopProducts.Include(m => m.ProductImages).ToListAsync();
-            return View(shopProducts);
+            IEnumerable<ProductCategory> shopProducts = await _context.ShopProducts.Where(m => m.Id == id).Include(m => m.ProductImages).ToListAsync();
+            IEnumerable<ProductCategory> shopProductsById = await _context.ShopProducts.Include(m => m.ProductImages).ToListAsync(); 
+
+            ProductDetailVM productDetailVM = new ProductDetailVM
+            {
+                ShopProducts =shopProducts,
+                ShopProductsById = shopProductsById
+
+            };
+            return View(productDetailVM);
         }
     }
 }

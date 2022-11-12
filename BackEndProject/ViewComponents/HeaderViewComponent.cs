@@ -25,13 +25,11 @@ namespace BackEndProject.ViewComponents
             Dictionary<string, string> setting = await _layoutService.GetDatasFromSetting();
             IEnumerable<Language> languages = await _layoutService.GetDatasFromLanguage();
             IEnumerable<Currency> currencies = await _layoutService.GetDatasFromCurrency();
-            IEnumerable<NavbarCategory> navbarCategories = await _context.NavbarCategories.ToListAsync();
             HeaderVM model = new HeaderVM
             {
                 Languages = languages,
                 Currencies = currencies,
                 SettingDatas = setting,
-                NavbarCategories = navbarCategories
             };
 
             return await Task.FromResult(View(model));

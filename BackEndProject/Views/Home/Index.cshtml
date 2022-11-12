@@ -78,13 +78,15 @@
                             <div class="product-item mb-50">
                                 <input type="hidden" class="product-id" value="@item.Id" />
                                 <div class="product-thumb">
-                                    <a asp-controller="ProductDetail" asp-action="Index" asp-route-id="@item.Id">
-                                        @foreach (var img in item.ProductImages)
-                                        {
+                                    @foreach (var img in item.ProductImages.Where(m=>m.IsMain == true))
+                                    {
+                                        <a asp-controller="ProductDetail" asp-action="Index" asp-route-id="@img.Id">
+
                                             <img src="~/assets/img/product/@img.Image" alt="">
-                                        }
-                                    </a>
-                                </div>
+                                            
+                                        </a>
+                                    }
+                                    </div>
                                 <div class="product-content">
                                     <h5 class="product-name">
                                         <a href="product-details.html">@item.Name</a>

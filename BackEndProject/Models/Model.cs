@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace BackEndProject.Models
 {
-    public class NavbarCategory : BaseEntity
+    public class Model : BaseEntity
     {
         public string Name { get; set; }
-        public string Url { get; set; }
-        public string Coulmn { get; set; }    
+
+        public List<ShopProduct> ShopProducts { get; set; }
     }
 }

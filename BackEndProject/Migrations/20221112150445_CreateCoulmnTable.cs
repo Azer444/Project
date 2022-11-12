@@ -2,7 +2,7 @@
 
 namespace BackEndProject.Migrations
 {
-    public partial class CreateNavbarDetailTable : Migration
+    public partial class CreateCoulmnTable : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

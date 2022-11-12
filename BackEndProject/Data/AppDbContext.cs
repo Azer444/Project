@@ -20,21 +20,17 @@ namespace BackEndProject.Data
         public DbSet<Language> Languages { get; set; }
         public DbSet<Setting> Settings { get; set; }
         public DbSet<Service> Services { get; set; }
-        public DbSet<ShopProduct> ShopProducts { get; set; }
+        public DbSet<ProductCategory> ShopProducts { get; set; }
         public DbSet<Slider> Sliders { get; set; }
         public DbSet<TwinBlog> TwinBlogs { get; set; }
         public DbSet<BrandSlider> BrandSliders { get; set; }
         public DbSet<SellerSlider> SellerSliders { get; set; }
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Social> Socials { get; set; }
-        public DbSet<NavbarCategory> NavbarCategories { get; set; }
-
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Category>().HasQueryFilter(m => !m.IsDeleted);
-        }
-
+        public DbSet<ProductImage> ProductImages { get; set; }
+        public DbSet<ProductSlider> ProductSliders { get; set; }
+        public DbSet<Model> Models { get; set; }
+        public DbSet<ShopProductModel> ShopProductModels { get; set; }
 
     }
 }
