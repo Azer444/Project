@@ -28,6 +28,7 @@ namespace BackEndProject.Areas.AdminArea.Controllers
                 .Skip((page*take)-take)
                 .Take(take)
                 .ToListAsync();
+            ViewBag.take = take;
             List<ProductListVM> mapDatas = GetMapDatas(products);
             int count = await GetPageCount(take);
             Pagination<ProductListVM> result = new Pagination<ProductListVM>(mapDatas, page, count);
