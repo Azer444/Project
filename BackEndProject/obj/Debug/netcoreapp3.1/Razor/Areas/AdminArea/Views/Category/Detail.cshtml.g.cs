@@ -21,20 +21,69 @@ using BackEndProject;
 #nullable disable
 #nullable restore
 #line 2 "C:\Users\azerh\Desktop\BackEnd-Lahiye\Project\BackEndProject\Areas\AdminArea\Views\_ViewImports.cshtml"
-using BackEndProject.Models;
+using BackEndProject.Helper;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 3 "C:\Users\azerh\Desktop\BackEnd-Lahiye\Project\BackEndProject\Areas\AdminArea\Views\_ViewImports.cshtml"
+using BackEndProject.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "C:\Users\azerh\Desktop\BackEnd-Lahiye\Project\BackEndProject\Areas\AdminArea\Views\_ViewImports.cshtml"
 using BackEndProject.ViewComponents;
 
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 5 "C:\Users\azerh\Desktop\BackEnd-Lahiye\Project\BackEndProject\Areas\AdminArea\Views\_ViewImports.cshtml"
+using BackEndProject.ViewModels;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "C:\Users\azerh\Desktop\BackEnd-Lahiye\Project\BackEndProject\Areas\AdminArea\Views\_ViewImports.cshtml"
+using BackEndProject.ViewModels.ProductViewModels;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 7 "C:\Users\azerh\Desktop\BackEnd-Lahiye\Project\BackEndProject\Areas\AdminArea\Views\_ViewImports.cshtml"
+using BackEndProject.ViewModels.SliderViewModels;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 8 "C:\Users\azerh\Desktop\BackEnd-Lahiye\Project\BackEndProject\Areas\AdminArea\Views\_ViewImports.cshtml"
+using BackEndProject.ViewModels.InfoViewModels;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 9 "C:\Users\azerh\Desktop\BackEnd-Lahiye\Project\BackEndProject\Areas\AdminArea\Views\_ViewImports.cshtml"
+using BackEndProject.ViewModels.ShoeViewModels;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 10 "C:\Users\azerh\Desktop\BackEnd-Lahiye\Project\BackEndProject\Areas\AdminArea\Views\_ViewImports.cshtml"
+using BackEndProject.ViewModels.TopImageModels;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f6f37728b2caf2d5db0e74654046bcb4b800c692", @"/Areas/AdminArea/Views/Category/Detail.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"62b9db9373115f4acc64a2454a4e446717fc6476", @"/Areas/AdminArea/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"38b3ce269dd7a8c04602c9ab4d00efdbc1e2e5d0", @"/Areas/AdminArea/Views/_ViewImports.cshtml")]
     public class Areas_AdminArea_Views_Category_Detail : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<Category>
     {
         #pragma warning disable 1998

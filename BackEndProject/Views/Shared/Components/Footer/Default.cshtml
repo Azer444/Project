@@ -1,4 +1,6 @@
 ﻿@model FooterVM
+
+
 <!-- Start Footer Area Wrapper -->
 <footer class="footer-wrapper">
     <!-- footer main area start -->
@@ -8,12 +10,12 @@
                 <!-- footer widget item start -->
                 <div class="col-xl-5 col-lg-3 col-md-6">
                     <div class="widget-item mt-40">
-                        <h5 class="widget-title">@Model.SettingDatas["User"]</h5>
+                        <h5 class="widget-title">My Account</h5>
                         <div class="widget-body">
                             <ul class="location-wrap">
-                                <li><i class="ion-ios-location-outline"></i>@Model.SettingDatas["Location"]</li>
-                                <li><i class="ion-ios-email-outline"></i>Mail Us: <a href="mailto:yourmail@gmail.com">@Model.SettingDatas["Email"]"</a></li>
-                                <li><i class="ion-ios-telephone-outline"></i>Phone: <a href="%2b0025425456554">@Model.SettingDatas["Phone"]</a></li>
+                                <li><i class="ion-ios-location-outline"></i>@Model.Settings["Adress"]</li>
+                                <li><i class="ion-ios-email-outline"></i>Mail Us: <a href="https://code.edu.az/">@Model.Settings["Email"]</a></li>
+                                <li><i class="ion-ios-telephone-outline"></i>Phone: <a href="%2b0025425456554">@Model.Settings["Phone"]</a></li>
                             </ul>
                         </div>
                     </div>
@@ -22,12 +24,12 @@
                 <!-- footer widget item start -->
                 <div class="col-xl-2 col-lg-3 col-md-6">
                     <div class="widget-item mt-40">
-                        <h5 class="widget-title"></h5>
+                        <h5 class="widget-title">Categories</h5>
                         <div class="widget-body">
                             <ul class="useful-link">
-                                @foreach (var item in Model.Categories)
+                                @foreach (var product in Model.Categories)
                                 {
-                                    <li><a href="#">@item.Name</a></li>
+                                    <li><a href="#">@product.Name</a></li>
                                 }
                             </ul>
                         </div>
@@ -87,6 +89,12 @@
                         {
                             <a href="@item.Url"><i class="@item.Name"></i></a>
                         }
+
+
+
+                        @*<a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>*@
                     </div>
                 </div>
             </div>
@@ -124,11 +132,10 @@
                 <div class="minicart-item-wrapper">
                     <ul>
 
-                     
                             <li class="minicart-item">
                                 <div class="minicart-thumb">
                                     <a href="product-details.html">
-                                        <img src="~/assets/img/cart/cart-1.jpg" alt="product">
+                                        <img src="assets/img/cart/cart-1.jpg" alt="product">
                                     </a>
                                 </div>
                                 <div class="minicart-content">
@@ -143,6 +150,8 @@
                                 <button class="minicart-remove"><i class="ion-android-close"></i></button>
                             </li>
                         
+
+
 
                     </ul>
                 </div>
@@ -177,3 +186,8 @@
     </div>
 </div>
 <!-- offcanvas mini cart end -->
+<!-- Scroll to top start -->
+<div class="scroll-top not-visible">
+    <i class="fa fa-angle-up"></i>
+</div>
+<!-- Scroll to Top End -->

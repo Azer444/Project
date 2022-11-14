@@ -8,7 +8,7 @@ namespace BackEndProject.ViewModels
 {
     public class ProductDetailVM
     {
-        public IEnumerable<ProductCategory> ShopProducts { get; set; }
-        public IEnumerable<ProductCategory> ShopProductsById { get; set; }
+        public IEnumerable<Product> ShopProducts { get; set; }
+        public IEnumerable<Product> ShopProductsById { get; set; }
     }
 }

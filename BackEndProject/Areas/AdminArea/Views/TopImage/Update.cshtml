@@ -1,0 +1,25 @@
+﻿@model TopImageUpdateVM
+
+
+@{
+    ViewData["Title"] = "Update";
+}
+
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Update</h4>
+            <form asp-action="Update" method="post" enctype="multipart/form-data">
+                <h3>Top image</h3>
+                <div class="form-group">
+                    <label asp-for="Photos">Photo</label>
+                    <input asp-for="Photos" class="form-control">
+                    <span asp-validation-for="Photos" class="text-danger my-1"></span>
+                </div>
+
+                <button class="btn btn-success">Update</button>
+                <a asp-controller="TopImage" asp-action="Index" class="btn btn-light">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>

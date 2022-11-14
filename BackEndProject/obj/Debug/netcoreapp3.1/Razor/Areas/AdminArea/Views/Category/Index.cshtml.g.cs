@@ -21,20 +21,69 @@ using BackEndProject;
 #nullable disable
 #nullable restore
 #line 2 "C:\Users\azerh\Desktop\BackEnd-Lahiye\Project\BackEndProject\Areas\AdminArea\Views\_ViewImports.cshtml"
-using BackEndProject.Models;
+using BackEndProject.Helper;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 3 "C:\Users\azerh\Desktop\BackEnd-Lahiye\Project\BackEndProject\Areas\AdminArea\Views\_ViewImports.cshtml"
+using BackEndProject.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "C:\Users\azerh\Desktop\BackEnd-Lahiye\Project\BackEndProject\Areas\AdminArea\Views\_ViewImports.cshtml"
 using BackEndProject.ViewComponents;
 
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 5 "C:\Users\azerh\Desktop\BackEnd-Lahiye\Project\BackEndProject\Areas\AdminArea\Views\_ViewImports.cshtml"
+using BackEndProject.ViewModels;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "C:\Users\azerh\Desktop\BackEnd-Lahiye\Project\BackEndProject\Areas\AdminArea\Views\_ViewImports.cshtml"
+using BackEndProject.ViewModels.ProductViewModels;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 7 "C:\Users\azerh\Desktop\BackEnd-Lahiye\Project\BackEndProject\Areas\AdminArea\Views\_ViewImports.cshtml"
+using BackEndProject.ViewModels.SliderViewModels;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 8 "C:\Users\azerh\Desktop\BackEnd-Lahiye\Project\BackEndProject\Areas\AdminArea\Views\_ViewImports.cshtml"
+using BackEndProject.ViewModels.InfoViewModels;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 9 "C:\Users\azerh\Desktop\BackEnd-Lahiye\Project\BackEndProject\Areas\AdminArea\Views\_ViewImports.cshtml"
+using BackEndProject.ViewModels.ShoeViewModels;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 10 "C:\Users\azerh\Desktop\BackEnd-Lahiye\Project\BackEndProject\Areas\AdminArea\Views\_ViewImports.cshtml"
+using BackEndProject.ViewModels.TopImageModels;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"209e87acf5f7ff951e5f1ba68eeefa47f3bf3098", @"/Areas/AdminArea/Views/Category/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"62b9db9373115f4acc64a2454a4e446717fc6476", @"/Areas/AdminArea/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"38b3ce269dd7a8c04602c9ab4d00efdbc1e2e5d0", @"/Areas/AdminArea/Views/_ViewImports.cshtml")]
     public class Areas_AdminArea_Views_Category_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<Category>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-area", "AdminArea", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -80,7 +129,7 @@ using BackEndProject.ViewComponents;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n\r\n<div class=\"container-fluid my-3 mx-3\">\r\n    <div class=\"table-responsive pt-3\">\r\n        <div class=\"create-btn mb-3\">\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "209e87acf5f7ff951e5f1ba68eeefa47f3bf30986641", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "209e87acf5f7ff951e5f1ba68eeefa47f3bf30988237", async() => {
                 WriteLiteral("<i class=\"fa-solid fa-plus\"></i>");
             }
             );
@@ -132,7 +181,7 @@ using BackEndProject.ViewComponents;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n                        </td>\r\n                        <td style=\"text-align: center;\">\r\n                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "209e87acf5f7ff951e5f1ba68eeefa47f3bf30989450", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "209e87acf5f7ff951e5f1ba68eeefa47f3bf309811046", async() => {
                 WriteLiteral("<i class=\"mdi mdi-information mx-0\"></i>");
             }
             );
@@ -166,7 +215,7 @@ using BackEndProject.ViewComponents;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                            <a class=\"btn btn-primary\"><i class=\"mdi mdi-table-edit\"></i></a>\r\n                                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "209e87acf5f7ff951e5f1ba68eeefa47f3bf309812126", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "209e87acf5f7ff951e5f1ba68eeefa47f3bf309813723", async() => {
                 WriteLiteral("\r\n                                    <button type=\"submit\" class=\"btn btn-danger\"><i class=\"mdi mdi-delete-forever\"></i></button>\r\n                                ");
             }
             );

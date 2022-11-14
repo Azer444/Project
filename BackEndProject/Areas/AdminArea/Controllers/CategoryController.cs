@@ -29,8 +29,9 @@ namespace BackEndProject.Areas.AdminArea.Controllers
         {
             return View();
         }
-        [HttpPost]
 
+
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Category category)
         {

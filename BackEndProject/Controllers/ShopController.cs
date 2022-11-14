@@ -1,5 +1,6 @@
 ﻿using BackEndProject.Data;
 using BackEndProject.Models;
+using BackEndProject.Services;
 using BackEndProject.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -15,25 +16,30 @@ namespace BackEndProject.Controllers
     public class ShopController : Controller
     {
         private readonly AppDbContext _context;
-        public ShopController(AppDbContext context)
+        private readonly LayoutService _layout;
+
+        public ShopController(AppDbContext context, LayoutService layout)
         {
             _context = context;
+            _layout = layout;
         }
+
         public async Task<IActionResult> Index()
         {
+            IEnumerable<Category> categories = await _context.Categories.ToListAsync();
+            IEnumerable<Product> products = await _context.Products
+                .Take(6)
+                .Include(m => m.Category)
+                .Include(m => m.ProductImages)
+                .ToListAsync();
 
-            //HttpContext.Session.SetString("name", "Azer");
-            //Response.Cookies.Append("surname", "Humbetov", new CookieOptions { MaxAge = TimeSpan.FromDays(1) });
-            List<ProductCategory> shopProducts = await _context.ShopProducts.Where(m=>!m.IsDeleted).Include(m => m.ProductImages).Where(m=>m.MainImage == true).ToListAsync();
-            //IEnumerable<Model> models = await _context.Models.ToListAsync();
+            ShopVM model = new ShopVM
+            {
+                Categories = categories,
+                Products = products,
+            };
 
-            //ShopVM shopVM = new ShopVM
-            //{
-                    
-            //};
-
-            return View(shopProducts);
-
+            return View(model);
         }
 
         [HttpPost]
@@ -73,9 +79,9 @@ namespace BackEndProject.Controllers
             }
         }
 
-        private async Task<ProductCategory> GetProductById(int? id)
+        private async Task<Product> GetProductById(int? id)
         {
-            return await _context.ShopProducts.FindAsync(id);
+            return await _context.Products.FindAsync(id);
         }
 
         private List<BasketVM> GetBasket()

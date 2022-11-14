@@ -8,17 +8,17 @@ namespace BackEndProject.ViewModels
 {
     public class HomeVM
     {
-        public IEnumerable<Currency> Currencies { get; set; }
-        public IEnumerable<Language> Languages { get; set; }
-        public Dictionary<string, string> SettingDatas { get; set; }
-        public IEnumerable<Service> Services { get; set; }
         public IEnumerable<Slider> Sliders { get; set; }
-        public IEnumerable<TwinBlog> TwinBlogs { get; set; }
-        public IEnumerable<ProductCategory> ShopProducts { get; set; }
-        public IEnumerable<ProductImage> ProductImages { get; set; }
-        public IEnumerable<BrandSlider> BrandSliders { get; set; }
-        public IEnumerable <SellerSlider> SellerSliders { get; set; }
-        public IEnumerable<Blog> Blogs { get; set; }
+        public IEnumerable<Info> Informations { get; set; }
+        public OurProduct OurProduct { get; set; }
+        public IEnumerable<Product> Products { get; set; }
+        public IEnumerable<Shoes> Shoes { get; set; }
+        public TopSeller TopSellers { get; set; }
+        public TopImage TopImages { get; set; }
+        public IEnumerable<TopProduct> TopProducts { get; set; }
+        public OurBlog OurBlogs { get; set; }
+        public IEnumerable<TopBlog> TopBlogs { get; set; }
+        public IEnumerable<BrandLogo> BrandLogos { get; set; }
 
 
     }

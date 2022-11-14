@@ -8,7 +8,5 @@ namespace BackEndProject.Models
     public class Model : BaseEntity
     {
         public string Name { get; set; }
-
-        public List<ShopProduct> ShopProducts { get; set; }
     }
 }

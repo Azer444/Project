@@ -9,28 +9,37 @@ using System.Threading.Tasks;
 
 namespace BackEndProject.Data
 {
-    public class AppDbContext: DbContext
+    public class AppDbContext: IdentityDbContext<AppUser>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
 
         }
-        public DbSet<Category> Categories { get; set; }
+        public DbSet<Slider> Sliders { get; set; }
         public DbSet<Currency> Currencies { get; set; }
         public DbSet<Language> Languages { get; set; }
+        public DbSet<Info> Informations { get; set; }
         public DbSet<Setting> Settings { get; set; }
-        public DbSet<Service> Services { get; set; }
-        public DbSet<ProductCategory> ShopProducts { get; set; }
-        public DbSet<Slider> Sliders { get; set; }
-        public DbSet<TwinBlog> TwinBlogs { get; set; }
-        public DbSet<BrandSlider> BrandSliders { get; set; }
-        public DbSet<SellerSlider> SellerSliders { get; set; }
-        public DbSet<Blog> Blogs { get; set; }
         public DbSet<Social> Socials { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<OurProduct> OurProducts { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Shoes> Shoes { get; set; }
+        public DbSet<TopSeller> TopSellers { get; set; }
+        public DbSet<TopImage> TopImages { get; set; }
+        public DbSet<TopProduct> TopProducts { get; set; }
+        public DbSet<OurBlog> OurBlogs { get; set; }
+        public DbSet<TopBlog> TopBlogs { get; set; }
+        public DbSet<BrandLogo> BrandLogos { get; set; }
         public DbSet<ProductImage> ProductImages { get; set; }
-        public DbSet<ProductSlider> ProductSliders { get; set; }
         public DbSet<Model> Models { get; set; }
-        public DbSet<ShopProductModel> ShopProductModels { get; set; }
 
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
     }
+
+    
 }

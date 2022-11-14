@@ -7,9 +7,9 @@ namespace BackEndProject.Models
 {
     public class ShopProductModel : BaseEntity
     {
-        public int ShopProductId { get; set; }
-        public ShopProduct ShopProduct { get; set; }
-        public int ModelId { get; set; }
-        public Model Model { get; set; }
+        //public int ShopProductId { get; set; }
+        //public Product ShopProduct { get; set; }
+        //public int ModelId { get; set; }
+        //public Model Model { get; set; }
     }
 }

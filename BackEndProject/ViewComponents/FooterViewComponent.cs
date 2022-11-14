@@ -13,27 +13,30 @@ namespace BackEndProject.ViewComponents
 {
     public class FooterViewComponent : ViewComponent
     {
-        private readonly LayoutService _layoutService;
-        private readonly AppDbContext _context;
-        public FooterViewComponent(LayoutService layoutService,AppDbContext context)
+        private readonly LayoutService _layout;
+
+        public FooterViewComponent(LayoutService layout)
         {
-            _layoutService = layoutService;
-            _context = context;
+            _layout = layout;
         }
+
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            Dictionary<string, string> setting = await _layoutService.GetDatasFromSetting();
-            IEnumerable<Category> categories = await _layoutService.GetDatasFromCategory();
-            IEnumerable<Social> socials = await _context.Socials.ToListAsync();
-            FooterVM model = new FooterVM
-            {
-                SettingDatas = setting,
-                Categories = categories,
-                Socials = socials
+            Dictionary<string, string> settings = await _layout.GetDatasFromSetting();
 
+            IEnumerable<Social> socials = await _layout.GetDatasFromSocial();
+
+            IEnumerable<Category> categories = await _layout.GetDatasFromCategory();
+
+            FooterVM footerVM = new FooterVM
+            {
+                Socials = socials,
+                Settings = settings,
+                Categories = categories
             };
 
-            return await Task.FromResult(View(model));
+            return await Task.FromResult(View(footerVM));
         }
     }
+    
 }

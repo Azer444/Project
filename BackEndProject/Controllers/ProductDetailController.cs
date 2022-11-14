@@ -19,12 +19,12 @@ namespace BackEndProject.Controllers
         }
         public async Task<IActionResult> Index(int? id)
         {
-            IEnumerable<ProductCategory> shopProducts = await _context.ShopProducts.Where(m => m.Id == id).Include(m => m.ProductImages).ToListAsync();
-            IEnumerable<ProductCategory> shopProductsById = await _context.ShopProducts.Include(m => m.ProductImages).ToListAsync(); 
+            IEnumerable<Product> shopProducts = await _context.Products.Where(m => m.Id == id).Include(m => m.ProductImages).ToListAsync();
+            IEnumerable<Product> shopProductsById = await _context.Products.Include(m => m.ProductImages).ToListAsync();
 
             ProductDetailVM productDetailVM = new ProductDetailVM
             {
-                ShopProducts =shopProducts,
+                ShopProducts = shopProducts,
                 ShopProductsById = shopProductsById
 
             };

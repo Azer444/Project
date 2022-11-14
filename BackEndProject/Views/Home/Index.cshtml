@@ -5,6 +5,8 @@
 }
 
 
+
+
 <!-- main wrapper start -->
 <main>
     <!-- hero slider section start -->
@@ -19,8 +21,8 @@
                                 <div class="hero-slider-item bg-img" data-bg="assets/img/slider/@item.Image">
                                     <div class="hero-slider-content slide-1">
                                         <h5 class="slide-subtitle">@item.Selling</h5>
-                                        <h2 class="slide-title">@item.Title</h2>
-                                        <p class="slide-desc">@item.Desc</p>
+                                        <h2 class="slide-title">@item.Desc</h2>
+                                        <p class="slide-desc">@item.Title</p>
                                         <a href="shop.html" class="btn btn-hero">SHOP NOW</a>
                                     </div>
                                 </div>
@@ -36,22 +38,20 @@
     <section class="service-policy-area">
         <div class="container">
             <div class="row">
-                <!-- single policy item start -->
-                @foreach (var item in Model.Services)
+                @foreach (var info in Model.Informations)
                 {
                     <div class="col-lg-4">
-                        <div style="background-color:@item.Color" class="service-policy-item mt-30 bg-1">
+                        <div class="service-policy-item mt-30 @info.Color">
                             <div class="policy-icon">
-                                <img src="~/assets/img/icon/@item.Image" alt="policy icon">
+                                <img style="width:50px; height:50px;" src="~/assets/img/icon/@info.Image" alt="policy icon">
                             </div>
                             <div class="policy-content">
-                                <h5 class="policy-title">@item.Header</h5>
-                                <p class="policy-desc">@item.Footer</p>
+                                <h5 class="policy-title">@info.Title</h5>
+                                <p class="policy-desc">@info.Desc</p>
                             </div>
                         </div>
                     </div>
                 }
-                <!-- single policy item start -->
             </div>
         </div>
     </section>
@@ -62,44 +62,70 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-title text-center">
-                        @foreach (var item in Model.ShopProducts)
-                        {
-                            <h2 class="title">@item.Header</h2>
-                            <p class="sub-title">@item.Desc</p>
-                        }
+                        <h2 class="title">@Model.OurProduct.Title</h2>
+                        <p class="sub-title">@Model.OurProduct.Desc</p>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12">
                     <div class="product-carousel-4 mbn-50 slick-row-15 slick-arrow-style">
-                        @foreach (var item in Model.ShopProducts)
+                        <!-- product single item start -->
+                        @*@foreach (var product in Model.Products)
+        {
+            <div class="product-item mb-50">
+                <div class="product-thumb">
+                    @foreach (var item in product.ProductImages.Where(m=>m.IsMain == true))
+                    {
+                        <a asp-controller="ProductDetail" asp-action="Index">
+
+                            <img src="~/assets/img/product/@item.Image" alt="">
+
+                        </a>
+                    }
+                </div>
+                <div class="product-content">
+                    <h5 class="product-name">
+                        <a href="product-details.html">@product.Title</a>
+                    </h5>
+                    <div class="price-box">
+                        <span class="price-regular">$@product.Price.ToString("##.00")</span>
+                        <span class="price-old"><del>$@product.DisCountPrice.ToString("##.00")</del></span>
+                    </div>
+                    <div class="product-action-link">
+                        <a href="#" data-toggle="tooltip" title="Wishlist"><i class="ion-android-favorite-outline"></i></a>
+                        <button class=" add-to-cart"><a href="#" data-toggle="tooltip" title="Add To Cart"><i class="ion-bag"></i></a></button>
+                        <a href="#" data-toggle="modal" data-target="#quick_view">
+                            <span data-toggle="tooltip"
+                                  title="Quick View"><i class="ion-ios-eye-outline"></i></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }*@
+
+                        @foreach (var item in Model.Products)
                         {
                             <div class="product-item mb-50">
                                 <input type="hidden" class="product-id" value="@item.Id" />
                                 <div class="product-thumb">
-                                    @foreach (var img in item.ProductImages.Where(m=>m.IsMain == true))
-                                    {
-                                        <a asp-controller="ProductDetail" asp-action="Index" asp-route-id="@img.Id">
+                                    <a asp-controller="ProductDetail" asp-action="Index" asp-route-id="@item.Id">
 
-                                            <img src="~/assets/img/product/@img.Image" alt="">
-                                            
-                                        </a>
-                                    }
-                                    </div>
+                                        <img src="~/assets/img/product/@item.ProductImages.FirstOrDefault(m=>m.IsMain)?.Image" alt="">
+
+                                    </a>
+                                </div>
                                 <div class="product-content">
                                     <h5 class="product-name">
-                                        <a href="product-details.html">@item.Name</a>
+                                        <a href="product-details.html">@item.Title</a>
                                     </h5>
                                     <div class="price-box">
                                         <span class="price-regular">$@item.Price</span>
-                                        <span class="price-old"><del>$@item.Discount</del></span>
+                                        <span class="price-old"><del>$@item.DisCountPrice.ToString("##.00")</del></span>
                                     </div>
                                     <div class="product-action-link">
                                         <a href="#" data-toggle="tooltip" title="Wishlist"><i class="ion-android-favorite-outline"></i></a>
-
-                                        <button class="add-to-cart" type="submit"><a data-toggle="tooltip" title="Add To Cart"><i class="ion-bag"></i></a></button>
-
+                                        <button class=" add-to-cart" type="submit"><a href="#" data-toggle="tooltip" title="Add To Cart"><i class="ion-bag"></i></a></button>
                                         <a href="#" data-toggle="modal" data-target="#quick_view">
                                             <span data-toggle="tooltip"
                                                   title="Quick View"><i class="ion-ios-eye-outline"></i></span>
@@ -108,6 +134,8 @@
                                 </div>
                             </div>
                         }
+
+
                     </div>
                 </div>
             </div>
@@ -118,16 +146,16 @@
     <div class="banner-statistics">
         <div class="container">
             <div class="row no-gutters mtn-30">
-                @foreach (var item in Model.TwinBlogs)
+                @foreach (var shoes in Model.Shoes)
                 {
                     <div class="col-md-6">
                         <div class="img-container mt-30">
                             <a href="product-details.html">
-                                <img src="~/assets/img/banner/@item.Image" alt="banner-image">
+                                <img src="assets/img/banner/@shoes.Image" alt="banner-image">
                             </a>
                             <div class="banner-text">
-                                <h5 class="banner-subtitle">@item.Header</h5>
-                                <h3 class="banner-title">@item.Percent<br>@item.Desc</h3>
+                                <h5 class="banner-subtitle">@shoes.SubTitle</h5>
+                                <h3 class="banner-title">@Html.Raw(shoes.Title)</h3>
                             </div>
                         </div>
                     </div>
@@ -135,17 +163,15 @@
             </div>
         </div>
     </div>
-
+    <!-- banner statistic area end -->
+    <!-- top seller area start -->
     <section class="top-seller-area section-padding">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="section-title text-center">
-                        @foreach (var item in Model.SellerSliders)
-                        {
-                            <h2 class="title">@item.Header</h2>
-                            <p class="sub-title">@item.Desc</p>
-                        }
+                        <h2 class="title">@Model.TopSellers.Title</h2>
+                        <p class="sub-title">@Model.TopSellers.Desc</p>
                     </div>
                 </div>
             </div>
@@ -153,37 +179,36 @@
                 <div class="col-xl-4 col-lg-5 col-md-5">
                     <div class="product-banner">
                         <a href="#">
-                            <img src="assets/img/banner/banner-3.jpg" alt="product banner">
+                            <img src="assets/img/banner/@Model.TopImages.Image" alt="product banner">
                         </a>
                     </div>
                 </div>
                 <div class="col-xl-8 col-lg-7 col-md-7">
                     <div class="top-seller-carousel slick-row-15 mtn-30">
-
-
-                        @foreach (var item in Model.SellerSliders)
+                        @foreach (var top in Model.TopProducts)
                         {
+                            <!-- product item start -->
                             <div class="slide-item">
                                 <div class="pro-item-small mt-30">
                                     <div class="product-thumb">
-                                        <a href="product-details.html">
-                                            <img src="assets/img/product/@item.Image" alt="">
+                                        <a asp-controller="ProductDetail" asp-action="Index">
+                                            <img src="assets/img/product/@top.Image" alt="">
                                         </a>
                                     </div>
                                     <div class="pro-small-content">
                                         <h6 class="product-name">
-                                            <a href="product-details.html">@item.Name</a>
+                                            <a href="product-details.html">@top.Name</a>
                                         </h6>
                                         <div class="price-box">
-                                            <span class="price-regular">$@item.Price</span>
-                                            <span class="price-old"><del>$@item.Discount</del></span>
+                                            <span class="price-regular">$@top.Price.ToString("##.00")</span>
+                                            <span class="price-old"><del>$@top.DisPrice.ToString("##.00")</del></span>
                                         </div>
                                         <div class="ratings">
-                                            <span><i class="ion-android-star"></i></span>
-                                            <span><i class="ion-android-star"></i></span>
-                                            <span><i class="ion-android-star"></i></span>
-                                            <span><i class="ion-android-star"></i></span>
-                                            <span><i class="ion-android-star"></i></span>
+                                            <span><i class="@top.Icon"></i></span>
+                                            <span><i class="@top.Icon"></i></span>
+                                            <span><i class="@top.Icon"></i></span>
+                                            <span><i class="@top.Icon"></i></span>
+                                            <span><i class="@top.Icon"></i></span>
                                         </div>
                                         <div class="product-link-2">
                                             <a href="#" data-toggle="tooltip" title="Wishlist"><i class="ion-android-favorite-outline"></i></a>
@@ -196,54 +221,53 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- product item start -->
                         }
-
 
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-
+    <!-- top seller area end -->
+    <!-- latest blog area start -->
     <section class="latest-blog-area">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="section-title text-center">
-                        @foreach (var item in Model.Blogs)
-                        {
-                            <h2 class="title">@item.Header</h2>
-                            <p class="sub-title">@item.Desc</p>
-                        }
+                        <h2 class="title">@Model.OurBlogs.Title</h2>
+                        <p class="sub-title">@Model.OurBlogs.Desc</p>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12">
                     <div class="blog-carousel-active slick-row-15">
-                        @foreach (var item in Model.Blogs)
+
+                        @foreach (var blog in Model.TopBlogs)
                         {
                             <div class="blog-post-item">
                                 <div class="blog-thumb">
-                                    <a href="blog-details.html">
-                                        <img src="~/assets/img/blog/@item.Image" alt="blog thumb">
+                                    <a asp-controller="Blog" asp-action="Index">
+                                        <img src="assets/img/blog/@blog.Image" alt="blog thumb">
                                     </a>
                                 </div>
                                 <div class="blog-content">
                                     <h5 class="blog-title">
                                         <a href="blog-details.html">
-                                            @item.BlogInfo
+                                            @blog.Title
                                         </a>
                                     </h5>
                                     <ul class="blog-meta">
-                                        <li><span>By: </span>@item.ByAdmin</li>
-                                        <li><span>On: </span>@item.Date</li>
+                                        <li><span>By: </span>@blog.Name</li>
+                                        <li><span>On: </span>@blog.Date</li>
                                     </ul>
-                                    <a href="blog-details.html" class="read-more">Read More...</a>
+                                    <a asp-controller="Blog" asp-action="Index" class="read-more">Read More...</a>
                                 </div>
                             </div>
                         }
+
                     </div>
                 </div>
             </div>
@@ -256,11 +280,11 @@
             <div class="row">
                 <div class="col-12">
                     <div class="brand-active-carousel">
-                        @foreach (var item in Model.BrandSliders)
+                        @foreach (var logo in Model.BrandLogos)
                         {
                             <div class="brand-item">
                                 <a href="#">
-                                    <img src="~/assets/img/brand/@item.Image" alt="brand image">
+                                    <img src="assets/img/brand/@logo.LogoSlider" alt="brand image">
                                 </a>
                             </div>
                         }
@@ -272,74 +296,3 @@
     <!-- brand area end -->
 </main>
 <!-- main wrapper end -->
-<!-- Quick view modal start -->
-<div class="modal" id="quick_view">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <!-- product details inner end -->
-                <div class="product-details-inner">
-                    <div class="row">
-                        <div class="col-lg-5">
-                            <div class="product-large-slider mb-20">
-                                <div class="pro-large-img img-zoom">
-                                    <img src="~/assets/img/product/product-details-img1.jpg" alt="product thumb" />
-                                </div>
-                                <div class="pro-large-img img-zoom">
-                                    <img src="~/assets/img/product/product-details-img2.jpg" alt="product thumb" />
-                                </div>
-                                <div class="pro-large-img img-zoom">
-                                    <img src="~/assets/img/product/product-details-img3.jpg" alt="product thumb" />
-                                </div>
-                                <div class="pro-large-img img-zoom">
-                                    <img src="~/assets/img/product/product-details-img4.jpg" alt="product thumb" />
-                                </div>
-                            </div>
-                            <div class="pro-nav slick-row-5">
-                                <div class="pro-nav-thumb"><img src="~/assets/img/product/product-details-img1.jpg" alt="" /></div>
-                                <div class="pro-nav-thumb"><img src="~/assets/img/product/product-details-img2.jpg" alt="" /></div>
-                                <div class="pro-nav-thumb"><img src="~/assets/img/product/product-details-img3.jpg" alt="" /></div>
-                                <div class="pro-nav-thumb"><img src="~/assets/img/product/product-details-img4.jpg" alt="" /></div>
-                            </div>
-                        </div>
-                        <div class="col-lg-7">
-                            <div class="product-details-des">
-                                <h3 class="pro-det-title">Primitive Mens Premium Shoes</h3>
-                                <div class="pro-review">
-                                    <span><a href="#">1 Review(s)</a></span>
-                                </div>
-                                <div class="price-box">
-                                    <span class="regular-price">$70.00</span>
-                                    <span class="old-price"><del>$80.00</del></span>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
-                                <div class="quantity-cart-box d-flex align-items-center mb-20">
-                                    <div class="quantity">
-                                        <div class="pro-qty"><input type="text" value="1"></div>
-                                    </div>
-                                    <a href="cart.html" class="btn btn-default">Add To Cart</a>
-                                </div>
-                                <div class="availability mb-20">
-                                    <h5 class="cat-title">Availability:</h5>
-                                    <span>In Stock</span>
-                                </div>
-                                <div class="share-icon">
-                                    <h5 class="cat-title">Share:</h5>
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-pinterest"></i></a>
-                                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- product details inner end -->
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Quick view modal end -->

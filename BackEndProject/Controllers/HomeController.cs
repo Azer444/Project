@@ -16,37 +16,42 @@ namespace BackEndProject.Controllers
     public class HomeController : Controller
     {
         private readonly AppDbContext _context;
-        public HomeController(AppDbContext context)
+        private readonly LayoutService _layout;
+
+        public HomeController(AppDbContext context, LayoutService layout)
         {
             _context = context;
+            _layout = layout;
         }
+
         public async Task<IActionResult> Index()
         {
-            HttpContext.Session.SetString("name", "Azer");
-            Response.Cookies.Append("surname", "Humbetov",new CookieOptions {MaxAge=TimeSpan.FromDays(1)});
-            Dictionary<string, string> settingDatas = await _context.Settings.ToDictionaryAsync(m => m.Key, m => m.Value);
-            IEnumerable<Language> languages = await _context.Languages.ToListAsync();
-            IEnumerable<Currency> currencies = await _context.Currencies.ToListAsync();
-            IEnumerable<Service> services = await _context.Services.ToListAsync();
             IEnumerable<Slider> sliders = await _context.Sliders.ToListAsync();
-            IEnumerable<TwinBlog> twinBlogs = await _context.TwinBlogs.ToListAsync();
-            ICollection<ProductCategory> shopProducts = await _context.ShopProducts.Include(m => m.ProductImages).Where(m => m.MainImage == true).Take(5).ToListAsync();
-            IEnumerable<BrandSlider> brandSliders = await _context.BrandSliders.ToListAsync();
-            IEnumerable<SellerSlider> sellerSliders = await _context.SellerSliders.ToListAsync();
-            IEnumerable<Blog> blogs = await _context.Blogs.ToListAsync();
- 
+            IEnumerable<Info> informations = await _context.Informations.Take(3).ToListAsync();
+            IEnumerable<Product> products = await _context.Products.Include(m => m.ProductImages).ToListAsync();
+            IEnumerable<Shoes> shoes = await _context.Shoes.Take(2).ToListAsync();
+            IEnumerable<TopBlog> topBlogs = await _context.TopBlogs.ToListAsync();
+            IEnumerable<BrandLogo> brandLogos = await _context.BrandLogos.ToListAsync();
+            IEnumerable<TopProduct> topProducts = await _context.TopProducts.ToListAsync();
+            OurProduct ourProduct = await _context.OurProducts.FirstOrDefaultAsync();
+            TopSeller topSellers = await _context.TopSellers.FirstOrDefaultAsync();
+            TopImage topImages = await _context.TopImages.Take(1).FirstOrDefaultAsync();
+            OurBlog ourBlog = await _context.OurBlogs.FirstOrDefaultAsync();
+      
+
             HomeVM homeVM = new HomeVM
             {
-                Currencies = currencies,
-                Languages = languages,
-                SettingDatas = settingDatas,
-                Services = services,
                 Sliders = sliders,
-                TwinBlogs = twinBlogs,
-                ShopProducts = shopProducts,
-                BrandSliders = brandSliders,
-                SellerSliders =sellerSliders,
-                Blogs = blogs
+                Informations = informations,
+                OurProduct = ourProduct,
+                Products = products,
+                Shoes = shoes,
+                TopSellers = topSellers,
+                TopImages = topImages,
+                TopProducts = topProducts,
+                OurBlogs = ourBlog,
+                TopBlogs = topBlogs,
+                BrandLogos = brandLogos
             };
 
             return View(homeVM);
@@ -91,9 +96,9 @@ namespace BackEndProject.Controllers
             }
         }
 
-        private async Task<ProductCategory> GetProductById(int? id)
+        private async Task<Product> GetProductById(int? id)
         {
-            return await _context.ShopProducts.FindAsync(id);
+            return await _context.Products.FindAsync(id);
         }
 
         private List<BasketVM> GetBasket()

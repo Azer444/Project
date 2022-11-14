@@ -503,4 +503,14 @@ C:\Users\azerh\Desktop\BackEnd-Lahiye\Project\BackEndProject\obj\Debug\netcoreap
 C:\Users\azerh\Desktop\BackEnd-Lahiye\Project\BackEndProject\obj\Debug\netcoreapp3.1\BackEndProject.dll
 C:\Users\azerh\Desktop\BackEnd-Lahiye\Project\BackEndProject\obj\Debug\netcoreapp3.1\BackEndProject.pdb
 C:\Users\azerh\Desktop\BackEnd-Lahiye\Project\BackEndProject\obj\Debug\netcoreapp3.1\BackEndProject.genruntimeconfig.cache
+C:\Users\azerh\Desktop\BackEnd-Lahiye\Project\BackEndProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Information\Create.cshtml.g.cs
+C:\Users\azerh\Desktop\BackEnd-Lahiye\Project\BackEndProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Information\Index.cshtml.g.cs
+C:\Users\azerh\Desktop\BackEnd-Lahiye\Project\BackEndProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Information\Update.cshtml.g.cs
+C:\Users\azerh\Desktop\BackEnd-Lahiye\Project\BackEndProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Shoe\Index.cshtml.g.cs
+C:\Users\azerh\Desktop\BackEnd-Lahiye\Project\BackEndProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Shoe\Create.cshtml.g.cs
+C:\Users\azerh\Desktop\BackEnd-Lahiye\Project\BackEndProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Shoe\Update.cshtml.g.cs
+C:\Users\azerh\Desktop\BackEnd-Lahiye\Project\BackEndProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Slider\Update.cshtml.g.cs
+C:\Users\azerh\Desktop\BackEnd-Lahiye\Project\BackEndProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\TopImage\Create.cshtml.g.cs
+C:\Users\azerh\Desktop\BackEnd-Lahiye\Project\BackEndProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\TopImage\Index.cshtml.g.cs
+C:\Users\azerh\Desktop\BackEnd-Lahiye\Project\BackEndProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\TopImage\Update.cshtml.g.cs
 C:\Users\azerh\Desktop\BackEnd-Lahiye\Project\BackEndProject\obj\Debug\netcoreapp3.1\BackEndProject.csproj.AssemblyReference.cache

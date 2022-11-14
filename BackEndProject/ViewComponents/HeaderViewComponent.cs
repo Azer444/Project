@@ -13,23 +13,28 @@ namespace BackEndProject.ViewComponents
 {
     public class HeaderViewComponent : ViewComponent
     {
-        private readonly AppDbContext _context;
         private readonly LayoutService _layoutService;
-        public HeaderViewComponent(LayoutService layoutService,AppDbContext context)
+
+        public HeaderViewComponent(LayoutService layout)
         {
-            _layoutService = layoutService;
-            _context = context;
+
+            _layoutService = layout;
         }
+
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            Dictionary<string, string> setting = await _layoutService.GetDatasFromSetting();
+
+            Dictionary<string, string> settings = await _layoutService.GetDatasFromSetting();
+
+            IEnumerable<Currency> currencies = await _layoutService.GetDatasFromCurrencies();
+
             IEnumerable<Language> languages = await _layoutService.GetDatasFromLanguage();
-            IEnumerable<Currency> currencies = await _layoutService.GetDatasFromCurrency();
+
             HeaderVM model = new HeaderVM
             {
-                Languages = languages,
+                Settings = settings,
                 Currencies = currencies,
-                SettingDatas = setting,
+                Languages = languages
             };
 
             return await Task.FromResult(View(model));

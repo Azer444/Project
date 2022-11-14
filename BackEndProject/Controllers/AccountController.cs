@@ -8,11 +8,11 @@ namespace BackEndProject.Controllers
 {
     public class AccountController : Controller
     {
-        public AccountController()
+        [HttpGet]
+        public IActionResult Login()
         {
-
+            return View();
         }
-
 
         [HttpGet]
         public IActionResult Register()
@@ -21,16 +21,5 @@ namespace BackEndProject.Controllers
         }
 
 
-        [HttpGet]
-        public IActionResult Login()
-        {
-            return View();
-        }
-
-        [HttpGet]
-        public IActionResult MyAccount()
-        {
-            return View();
-        }
     }
 }

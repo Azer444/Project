@@ -8,10 +8,8 @@ namespace BackEndProject.ViewModels
 {
     public class HeaderVM
     {
-        public Dictionary<string, string> SettingDatas { get; set; }
-
+        public Dictionary<string, string> Settings { get; set; }
         public IEnumerable<Currency> Currencies { get; set; }
-
         public IEnumerable<Language> Languages { get; set; }
 
     }

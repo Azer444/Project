@@ -30,13 +30,13 @@ namespace BackEndProject.Controllers
             List<BasketDetailVM> basketDetail = new List<BasketDetailVM>();
             foreach (var item in basketItems)
             {
-                ProductCategory shopProduct = await _context.ShopProducts
+                Product shopProduct = await _context.Products
                     .Where(m => m.Id == item.Id && m.IsDeleted == false)
                     .Include(m => m.ProductImages).FirstOrDefaultAsync();
 
                 BasketDetailVM newBasket = new BasketDetailVM
                 {
-                    Name = shopProduct.Name,
+                    Name = shopProduct.Title,
                     Image = shopProduct.ProductImages.Where(m=>m.IsMain).FirstOrDefault().Image,
                     Price = shopProduct.Price,
                     Count = item.Count,

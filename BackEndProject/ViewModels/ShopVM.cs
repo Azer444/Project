@@ -9,8 +9,7 @@ namespace BackEndProject.ViewModels
 {
     public class ShopVM
     {
-        //public List<ShopProduct> ShopProduct { get; set; }
-        //public List<ShopProductModel> ShopProductModel { get; set; }
-        //public List<Model> Models { get; set; }
+        public IEnumerable<Product> Products { get; set; }
+        public IEnumerable<Category> Categories { get; set; }
     }
 }

@@ -8,11 +8,10 @@ namespace BackEndProject.ViewModels
 {
     public class FooterVM
     {
-        public Dictionary<string, string> SettingDatas { get; set; }
-
+        public Dictionary<string, string> Settings { get; set; }
         public IEnumerable<Social> Socials { get; set; }
-
         public IEnumerable<Category> Categories { get; set; }
+
 
     }
 }

@@ -8,9 +8,9 @@ namespace BackEndProject.Models
 {
     public class ProductImage : BaseEntity
     {
-        public bool IsMain { get; set; } = false;
         public string Image { get; set; }
-        public int ShopProductId { get; set; }
-        public ShopProduct ShopProduct { get; set; }
+        public bool IsMain { get; set; } = false;
+        public int ProductId { get; set; }
+        public Product Product { get; set; }
     }
 }
