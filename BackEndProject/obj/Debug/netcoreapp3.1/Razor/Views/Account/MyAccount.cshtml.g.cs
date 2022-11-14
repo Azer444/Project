@@ -35,41 +35,48 @@ using BackEndProject.ViewModels;
 #nullable disable
 #nullable restore
 #line 4 "C:\Users\azerh\Desktop\BackEnd-Lahiye\Project\BackEndProject\Views\_ViewImports.cshtml"
-using BackEndProject.ViewModels.InfoViewModels;
+using BackEndProject.ViewModels.AccountViewModels;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 5 "C:\Users\azerh\Desktop\BackEnd-Lahiye\Project\BackEndProject\Views\_ViewImports.cshtml"
-using BackEndProject.ViewModels.ShoeViewModels;
+using BackEndProject.ViewModels.InfoViewModels;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 6 "C:\Users\azerh\Desktop\BackEnd-Lahiye\Project\BackEndProject\Views\_ViewImports.cshtml"
-using BackEndProject.ViewModels.SliderViewModels;
+using BackEndProject.ViewModels.ShoeViewModels;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 7 "C:\Users\azerh\Desktop\BackEnd-Lahiye\Project\BackEndProject\Views\_ViewImports.cshtml"
-using BackEndProject.ViewModels.TopImageModels;
+using BackEndProject.ViewModels.SliderViewModels;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 8 "C:\Users\azerh\Desktop\BackEnd-Lahiye\Project\BackEndProject\Views\_ViewImports.cshtml"
+using BackEndProject.ViewModels.TopImageModels;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 9 "C:\Users\azerh\Desktop\BackEnd-Lahiye\Project\BackEndProject\Views\_ViewImports.cshtml"
 using BackEndProject.Helper;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d8d3b1de31ff676ab9f0ddecd1026f3fcf2534a5", @"/Views/Account/MyAccount.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"33ea06a295fb52aae8eaf4e5a8238323c173890b", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"1cf3b66c1438082bb4dfb5c55ed1ac02920df9fc", @"/Views/_ViewImports.cshtml")]
     public class Views_Account_MyAccount : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "Home", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -112,7 +119,7 @@ using BackEndProject.Helper;
                             <h1 class=""breadcrumb-title"">My Account</h1>
                             <ul class=""breadcrumb"">
                                 <li class=""breadcrumb-item"">");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d8d3b1de31ff676ab9f0ddecd1026f3fcf2534a56176", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d8d3b1de31ff676ab9f0ddecd1026f3fcf2534a56395", async() => {
                 WriteLiteral("Home");
             }
             );
@@ -164,7 +171,7 @@ using BackEndProject.Helper;
                                     <a href=""#address-edit"" data-toggle=""tab""><i class=""fa fa-map-marker""></i> address</a>
                                     <a href=""#account-info"" data-toggle=""tab""><i class=""fa fa-user""></i> Account Details</a>
                                     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d8d3b1de31ff676ab9f0ddecd1026f3fcf2534a59555", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d8d3b1de31ff676ab9f0ddecd1026f3fcf2534a59774", async() => {
                 WriteLiteral("<i class=\"fa fa-sign-out\"></i> Logout");
             }
             );
@@ -314,7 +321,7 @@ using BackEndProject.Helper;
                                             <div class=""account-details-form"">
               ");
             WriteLiteral("                                  ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d8d3b1de31ff676ab9f0ddecd1026f3fcf2534a520591", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d8d3b1de31ff676ab9f0ddecd1026f3fcf2534a520810", async() => {
                 WriteLiteral(@"
                                                     <div class=""row"">
                                                         <div class=""col-lg-6"">

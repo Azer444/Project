@@ -34,6 +34,12 @@ body {
   font-size: 16px;
   font-family: "Open Sans", sans-serif; }
 
+.input-area{
+    width:500px;
+    height:300px;
+    background-color:darkcyan;
+}
+
 a {
   -webkit-transition: 0.4s;
   -o-transition: 0.4s;

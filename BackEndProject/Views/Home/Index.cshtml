@@ -14,21 +14,22 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
+                  
                     <div class="hero-slider-active slick-arrow-style slick-arrow-style_hero slick-dot-style">
                         @foreach (var item in Model.Sliders)
                         {
                             <div class="hero-single-slide">
-                                <div class="hero-slider-item bg-img" data-bg="assets/img/slider/@item.Image">
+                                <div class="hero-slider-item bg-img" data-bg="~/assets/img/slider/@item.Image">
                                     <div class="hero-slider-content slide-1">
-                                        <h5 class="slide-subtitle">@item.Selling</h5>
-                                        <h2 class="slide-title">@item.Desc</h2>
-                                        <p class="slide-desc">@item.Title</p>
+                                        <h5 class="slide-subtitle">Top Selling!</h5>
+                                        <h2 class="slide-title">New Collection</h2>
+                                        <p class="slide-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
                                         <a href="shop.html" class="btn btn-hero">SHOP NOW</a>
                                     </div>
                                 </div>
                             </div>
                         }
-                    </div>
+                     </div>
                 </div>
             </div>
         </div>
@@ -70,39 +71,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="product-carousel-4 mbn-50 slick-row-15 slick-arrow-style">
-                        <!-- product single item start -->
-                        @*@foreach (var product in Model.Products)
-        {
-            <div class="product-item mb-50">
-                <div class="product-thumb">
-                    @foreach (var item in product.ProductImages.Where(m=>m.IsMain == true))
-                    {
-                        <a asp-controller="ProductDetail" asp-action="Index">
-
-                            <img src="~/assets/img/product/@item.Image" alt="">
-
-                        </a>
-                    }
-                </div>
-                <div class="product-content">
-                    <h5 class="product-name">
-                        <a href="product-details.html">@product.Title</a>
-                    </h5>
-                    <div class="price-box">
-                        <span class="price-regular">$@product.Price.ToString("##.00")</span>
-                        <span class="price-old"><del>$@product.DisCountPrice.ToString("##.00")</del></span>
-                    </div>
-                    <div class="product-action-link">
-                        <a href="#" data-toggle="tooltip" title="Wishlist"><i class="ion-android-favorite-outline"></i></a>
-                        <button class=" add-to-cart"><a href="#" data-toggle="tooltip" title="Add To Cart"><i class="ion-bag"></i></a></button>
-                        <a href="#" data-toggle="modal" data-target="#quick_view">
-                            <span data-toggle="tooltip"
-                                  title="Quick View"><i class="ion-ios-eye-outline"></i></span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        }*@
+                 
 
                         @foreach (var item in Model.Products)
                         {
@@ -125,7 +94,7 @@
                                     </div>
                                     <div class="product-action-link">
                                         <a href="#" data-toggle="tooltip" title="Wishlist"><i class="ion-android-favorite-outline"></i></a>
-                                        <button class=" add-to-cart" type="submit"><a href="#" data-toggle="tooltip" title="Add To Cart"><i class="ion-bag"></i></a></button>
+                                        <button class=" add-to-cart" type="submit"> <a  data-toggle="tooltip" title="Add To Cart"><i class="ion-bag"></i></a></button>
                                         <a href="#" data-toggle="modal" data-target="#quick_view">
                                             <span data-toggle="tooltip"
                                                   title="Quick View"><i class="ion-ios-eye-outline"></i></span>
@@ -179,7 +148,7 @@
                 <div class="col-xl-4 col-lg-5 col-md-5">
                     <div class="product-banner">
                         <a href="#">
-                            <img src="assets/img/banner/@Model.TopImages.Image" alt="product banner">
+                            <img src="~/assets/img/banner/@Model.TopImages" alt="product banner">
                         </a>
                     </div>
                 </div>
